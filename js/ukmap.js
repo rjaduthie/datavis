@@ -50,7 +50,14 @@ function drawMap(dataset) {
         .attr("d",mypath)
         .style("fill",function(region){return color(region.id);});
 
-}
+    graphics.selectAll("path")
+        .on("click", function(region){
+            var z = 3;
+            graphics.attr("transform",
+                "translate("+width/2 +","+height/2 +")"+
+                "scale("+z+")"+
+                "translate("-width/2 +","-height/2 +")");
+    });
 
 
 function loadData(error, dataset){
